@@ -22,6 +22,7 @@
           <li><a href="/news">News</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
+        <div class="time">It's <%= get_current_time.strftime('%F %T')%></div>
       </nav>
       <main class='<%= controller.controller_name %>'>
         <%= yield %>

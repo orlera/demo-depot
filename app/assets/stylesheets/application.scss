@@ -66,9 +66,9 @@
         }
         li {
           margin: 0;
-          padding: 0.5em;
-          text-transform: uppercase;
           letter-spacing: 0.354em;
+          text-transform: uppercase;
+          padding: 0.5em;
           a {
             color: #bfb;
             text-decoration: none;
@@ -79,9 +79,14 @@
           }
         }
       }
+      .time {
+          color: #dab;
+          padding: 0.5em;
+          margin-top: 1em;
+      }
     }
     main {
       padding: 0.5em;
     }
   }
-  //
+  //    
