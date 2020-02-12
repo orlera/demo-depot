@@ -1,6 +1,10 @@
 <% if notice %>
   <aside id="notice"><%= notice %></aside>
 <% end %>
+<% if session[:viewed_times] >= 5 %>
+  <aside id="notice">Hey! We've seen you <%=pluralize(session[:viewed_times], 'time')%>! Buy something already!</aside>
+<% end %>
+
 <h1>Store</h1>
 <h2>Our pragmatic catalog</h2>
 
