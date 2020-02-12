@@ -46,4 +46,12 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to products_url
   end
+
+  test "should get and validate index" do
+    get products_url
+    assert_response :success
+    assert_select 'nav.side_nav a', minimum: 4 
+    assert_select 'table tbody tr', 3
+    assert_select 'h1', 'Products'
+  end
 end
