@@ -47,4 +47,14 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to store_index_url
   end
+
+  test "should increment quantity of line item" do
+    n = 2
+    product_id = products(:ruby).id
+    n.times do
+      post line_items_url, params: {product_id: product_id}
+    end
+    @cart = Cart.find(session[:cart_id])
+    assert @cart.line_items[0].quantity == 2
+  end
 end
