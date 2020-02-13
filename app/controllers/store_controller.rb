@@ -4,6 +4,6 @@ class StoreController < ApplicationController
   def index
     session[:viewed_times] ||= 0
     session[:viewed_times] += 1
-    @products = Product.order(:title)
+    @products = Product.all.order(:title)
   end
 end
