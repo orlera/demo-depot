@@ -1,2 +1,5 @@
 cart = document.getElementById("cart")
-cart.innerHTML = "<%= j render @cart, hide_remove_line_item: true %>"
+cart.innerHTML = "<%= j render @cart, hide_remove_line_item: false %>"
+
+notice = document.getElementById("notice")
+if (notice) notice.style.display = "none"
