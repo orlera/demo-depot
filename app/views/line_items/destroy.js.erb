@@ -1,6 +1,5 @@
 cart = document.getElementById("cart")
-cart.innerHTML = "<%= j render @cart, hide_remove_line_item: false %>"
-cart.style.display = "block"
+cart.innerHTML = "<%= j render_if @cart && @cart.line_items.any?, @cart %>"
 
 notice = document.getElementById("notice")
 if (notice) notice.style.display = "none"

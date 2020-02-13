@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create]
+  before_action :set_cart, only: [:create, :destroy]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
@@ -28,7 +28,6 @@ class LineItemsController < ApplicationController
   def create
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product)
-
     respond_to do |format|
       if @line_item.save
         session[:viewed_times] = 0
@@ -62,7 +61,8 @@ class LineItemsController < ApplicationController
     @line_item.destroy
     respond_to do |format|
       format.html { redirect_to store_index_url, notice: "#{@line_item.product.title} successfully removed from your cart." }
-      format.json { head :no_content }
+      format.js {@current_item = @line_item}
+      format.json { render :show, status: :deleted }
     end
   end
 
